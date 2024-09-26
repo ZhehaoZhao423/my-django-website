@@ -4,11 +4,17 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from .models import myModel
+from .models import User
 
-def home(request):
-    return HttpResponse("Welcome to Zhehao Zhao's dynamic Django website!")
+def homepage(request):
+    return render(request, 'homepage.html')
 
-def my_view(request):
-    items = myModel.objects.all()
-    return render(request, 'my_template.html', {'items': items})
+def about(request):
+    return render(request, 'about.html')
 
+def contact(request):
+    return render(request, 'contact.html')
+
+def user_list(request):
+    users = User.objects.all()
+    return render(request, 'user_list.html', {'users': users})
